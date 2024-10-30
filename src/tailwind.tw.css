@@ -61,4 +61,9 @@
     .content p {
         @apply text-base font-normal opacity-50;
     }
+
+
+    .form-short-text__label {
+      @apply text-gray-800;
+    }
 }

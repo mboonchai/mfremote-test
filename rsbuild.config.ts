@@ -27,9 +27,13 @@ export default defineConfig({
           name: 'component1',
           exposes: {
             './button': './src/components/controls/button.tsx',
-            './short-text': './src/components/forms/short-text/index.tsx'
+            './short-text': './src/components/forms/form-controls/short-text.tsx',
+            './generic': './src/components/forms/theme_generic.tsx',
           },
-          shared: ['react', 'react-dom'],
+          shared: [
+            'react', 
+            {'react-dom': {singleton: true}}
+          ],
         }),
         new rspack.CssExtractRspackPlugin({}),
       ],
@@ -86,5 +90,8 @@ export default defineConfig({
   
     },
   },
-}  
+},
+output: {
+  assetPrefix: 'https://forms-dev.allcorporate.net/components/',
+},  
 });
